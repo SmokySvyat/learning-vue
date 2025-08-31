@@ -65,5 +65,8 @@ import axios from 'axios';
   display: flex;
   flex-direction: column;
   align-content: center;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-rendering: optimizeLegibility;
 }
 </style>

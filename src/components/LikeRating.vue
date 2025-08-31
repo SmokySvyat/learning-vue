@@ -1,20 +1,19 @@
 <template>
-  <div class="container">
-    <div class="counters">
-      <p class="counters__elem">Рейтинг: <span class="counter">{{ rating }}</span></p>
-      <p class="counters__elem">Количество лайков: <span class="counter">{{ likes }}</span></p>
-      <p class="counters__elem">Количество дизлайков: <span class="counter">{{ dislikes }}</span></p>
-    </div>
-    <div class="btns-container">
-      <button class="btn" @click="addLike">Like</button>
-      <button class="btn" @click="addDislike">Dislike</button>
-    </div>
+  <div class="rating">
+      <button class="btn rating__btn" @click="addLike">Like</button>
+
+      <p class="counters__elem">{{ rating }}</p>
+      
+      <button class="btn rating__btn" @click="addDislike">Dislike</button>
+      
+      <p class="counters__elem" style="color:green">{{ likes }}</p>
+      <p class="counters__elem" style="color: red">{{ dislikes }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    // name: 'like-rating',
+    name: 'like-rating',
     data() {
       return {
         likes: 0,
@@ -39,59 +38,57 @@
 </script>
 
 <style scoped>
-.app {
-  background-color: aquamarine;
+.rating {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
   align-items: center;
-
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-weight: 400;
-  font-size: 1.3em;
-  text-rendering: optimizeLegibility;
-
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
 
   box-sizing: border-box;
   width: fit-content;
   height: fit-content;
+  margin-right: 5px;
+  font-size: 0.9em;
+}
 
-  border: 1px solid #000;
-  border-radius: 5px;
-  padding: 15px 15px;
+.rating__btn {
+  width: 75px;
+  margin: 5px 0;
+  align-self: center;
+}
 
-  background-color: #fff;
+.rating__btn:hover {
+  background-color: rgba(165, 42, 42, 0.3);
 }
 
 .counters__elem {
-  margin: 0 0 20px 0;
+  width: 95px;
+  margin: 5px 0;
+  text-align: center;
+  /* justify-items: center; */
+  font-size: 1.2em;
+  font-weight: 600;
+  /* font-size: 0.8em; */
 }
-
-.btn {
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 5px;
-  padding: 5px 10px;
-
-  margin-right: 10px;
-  cursor: pointer;
-  opacity: 1;
-  transition: all ease-in-out 0.3s;
+.counters__elem:nth-of-type(2n)::before {
+  display: inline-block;
+  position: relative;
+  margin-right: 7px;
+  width: 22px;
+  height: 22px;
+  background-image: url(../img/like.svg);
+  background-size: cover;
+  background-position: center;
+  content: ' ';
 }
-
-.btn:hover {
-  opacity: 0.7;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
-  transition: all ease-in-out 0.3s;
+.counters__elem:nth-of-type(3n)::before {
+  display: inline-block;
+  position: relative;
+  margin-right: 7px;
+  width: 22px;
+  height: 22px;
+  background-image: url(../img/dislike.svg);
+  background-size: cover;
+  content: ' ';
 }
 
 .counter {

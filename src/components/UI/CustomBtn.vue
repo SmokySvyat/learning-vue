@@ -14,7 +14,7 @@ export default {
 .btn {
   align-self: flex-end;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   background-color: transparent;
 

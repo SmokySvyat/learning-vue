@@ -4,6 +4,7 @@ import PostItem from "../PostItem.vue";
 import CustomBtn from "./CustomBtn.vue";
 import CustomInput from "./CustomInput.vue";
 import PopupForm from "../PopupForm.vue";
+import LikeRating from "../LikeRating.vue";
 
 export default [
     PostForm,
@@ -11,5 +12,6 @@ export default [
     PostItem,
     CustomBtn,
     CustomInput,
-    PopupForm
+    PopupForm,
+    LikeRating
 ]

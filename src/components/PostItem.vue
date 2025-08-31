@@ -1,5 +1,6 @@
 <template>
   <article class="post-container">
+    <like-rating></like-rating>
     <div class="post">
       <p class="post__title">{{ post.title }}</p>
       <p class="post__body">{{ post.body }}</p>
@@ -31,13 +32,14 @@ export default {
 <style scoped>
 .post-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-sizing: border-box;
   border: 2px solid rgba(165, 42, 42, 0.5);
   border-radius: 15px;
   height: fit-content;
   width: 100%;
   padding: 20px;
+  padding-left: 10px;
   margin: 10px 0;
 }
 
