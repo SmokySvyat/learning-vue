@@ -1,19 +1,21 @@
 <template>
   <article class="post-container">
-    <like-rating></like-rating>
+    <like-rating
+      :post="post"
+      @like="$emit('like', post)"
+      @dislike="$emit('dislike', post)"
+    />
     <div class="post">
       <p class="post__title">{{ post.title }}</p>
       <p class="post__body">{{ post.body }}</p>
     </div>
 
-    <div class="controls">
-      <custom-btn
-        @click="$emit('remove', post)"
-        class="controls__delete"
-      >
-        Delete
-      </custom-btn>
-    </div>
+    <custom-btn
+      @click="$emit('remove', post)"
+      class="controls__delete"
+    >
+      Delete
+    </custom-btn>
   </article>
 </template>
 
@@ -46,6 +48,8 @@ export default {
 .post {
   display: flex;
   flex-direction: column;
+  position: relative;
+  width: 100%;
 }
 
 .post__title {
@@ -70,6 +74,8 @@ export default {
 
 .controls__delete {
     border: 2px solid rgba(255, 0, 0, 0.3);
+    align-self: flex-start;
+    justify-self: center;
 }
 .controls__delete:hover {
     background-color: rgba(255, 0, 0, 0.3);

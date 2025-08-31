@@ -1,39 +1,28 @@
 <template>
   <div class="rating">
-      <button class="btn rating__btn" @click="addLike">Like</button>
+      <button class="btn rating__btn" @click="$emit('like', post)">Like</button>
 
-      <p class="counters__elem">{{ rating }}</p>
-      
-      <button class="btn rating__btn" @click="addDislike">Dislike</button>
-      
-      <p class="counters__elem" style="color:green">{{ likes }}</p>
-      <p class="counters__elem" style="color: red">{{ dislikes }}</p>
+      <p class="counters__elem">{{ post.rating }}</p>
+
+      <button class="btn rating__btn" @click="$emit('dislike', post)">Dislike</button>
+
+      <p class="counters__elem" style="color:green">{{ post.likes }}</p>
+      <p class="counters__elem" style="color: red">{{ post.dislikes }}</p>
   </div>
 </template>
 
 <script>
   export default {
     name: 'like-rating',
-    data() {
-      return {
-        likes: 0,
-        dislikes: 0,
-        rating: 0
+    props: {
+      post: {
+        type: Object,
+        required: true
       }
     },
     methods: {
-      addLike() {
-        this.likes += 1;
-        this.handleRating();
-      },
-      addDislike() {
-        this.dislikes +=1;
-        this.handleRating();
-      },
-      handleRating() {
-        this.rating = this.likes - this.dislikes;
-      }
-    }      
+      
+    }
   }
 </script>
 

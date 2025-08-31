@@ -8,6 +8,8 @@
         v-for="post in posts"
         :post="post"
         :key="post.id"
+        @like="$emit('like', post)"
+        @dislike="$emit('dislike', post)"
         @remove="$emit('remove', post)"
       />
     </div>
@@ -18,7 +20,7 @@
     >
       Loading posts
     </h3>
-  
+
     <h3
       class="message__title"
       v-else
@@ -52,7 +54,7 @@ export default {
   border-top: 2px solid rgba(165, 42, 42, 0.3);
   border-right: 2px solid rgba(165, 42, 42, 0.3);
   box-shadow: 18px -2px 20px 1px;
-  padding-right: 60px;
+  padding-right: 40px;
   padding-bottom: 20px;
   border-top-right-radius: 80px;
   border-bottom-right-radius: 80px;

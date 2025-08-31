@@ -27,7 +27,10 @@ export default {
     return {
       post: {
         title: '',
-        body: ''
+        body: '',
+        likes: 0,
+        dislikes: 0,
+        rating: 0
       }
     }
   }, methods: {
@@ -36,7 +39,10 @@ export default {
       this.$emit('create', this.post);
       this.post = {
         title: '',
-        body: ''
+        body: '',
+        likes: 0,
+        dislikes: 0,
+        rating: 0
       }
     }
   }
