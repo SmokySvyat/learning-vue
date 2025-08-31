@@ -66,8 +66,4 @@ export default {
   font-weight: 800;
   letter-spacing: 1px;
 }
-
-.message-title {
-
-}
 </style>
